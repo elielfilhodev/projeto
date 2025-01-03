@@ -7,6 +7,7 @@
     outline: none;
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -22,13 +23,13 @@ header {
     background: transparent;
 }
 
-.navbar {
-        position: absolute;
-        top: 10%;
-        right: 0;
-        width: 35%;
-        padding: 2rem 3%;
-        backdrop-filter: blur(10px);      
+.navbar a{
+    display: inline-block;
+    position: relative;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition:  0.4s all ease;
 }
 .navbar a{
     color: white;
@@ -39,8 +40,26 @@ header {
 }
 
 .navbar a:hover{
-    color: white;
-    border-bottom: 3px solid white;
+    color: #cdcdcd;
+    transition: 0.4s all ease;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scale(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0051ff;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+}
+
+.navbar a:hover::after {
+    transform: scale(1);
+    transform-origin: bottom left;
 }
 
 header a i{
@@ -113,7 +132,7 @@ section .box p{
     left: 900px;
     width: 890px;
     transition: 0.5s ease;
-    scale: 2;
+    scale: 1.8;
 }
 
 .hero-img img:hover{
@@ -131,4 +150,61 @@ section .box p{
     section .box .conteudo{
         width: 80%;
     }
+}
+
+button{
+    margin: 1rem;
+    background: transparent;
+    text-decoration: none;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+button {
+    padding: 0.8em 1.8em;
+    border: 2px solid #0051ff;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #0051ff;
+}
+
+button::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #0051ff;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+button:hover::before {
+    width: 105%;
+}
+
+button:hover {
+    color: #111;
+}
+
+.container img{
+    align-items: center;
+    width: 100%;
+}
+.container p{
+    position: absolute;
+    bottom: 2rem;
+    color: white;
+    padding: 250px;
+    right: 2rem;
 }
